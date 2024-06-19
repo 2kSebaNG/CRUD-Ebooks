@@ -1,41 +1,41 @@
 <div class="p-8 flex items-start justify-center">
   <form class="w-full py-4 px-6 max-w-lg bg-white border border-gray-200 rounded-lg shadow flex flex-col gap-4"
-  [formGroup]="newEbookForm"
-  (ngSubmit)="newEbookForm.valid && createEbook()"
+  [formGroup]="updateEbookForm"
+  (ngSubmit)="updateEbookForm.valid && updateEbook()"
   autocomplete="off">
 
-    <h1 class="text-center text-2xl font-bold">Añadir un ebook</h1>
+    <h1 class="text-center text-2xl font-bold">Editar ebook</h1>
 
     <app-text-input
-        [formControl]="$any(newEbookForm.controls['title'])"
+        [formControl]="$any(updateEbookForm.controls['title'])"
         label="Nombre"
         placeholder="Ingrese el nombre del ebook"
         requiredMessage="El nombre es requerido"
     />
 
     <app-text-input
-        [formControl]="$any(newEbookForm.controls['author'])"
+        [formControl]="$any(updateEbookForm.controls['author'])"
         label="Autor"
         placeholder="Ingrese el autor del ebook"
         requiredMessage="El autor es requerido"
     />
 
     <app-text-input
-        [formControl]="$any(newEbookForm.controls['genre'])"
+        [formControl]="$any(updateEbookForm.controls['genre'])"
         label="Género"
         placeholder="Ingrese el género del ebook"
         requiredMessage="El género es requerido"
     />
 
     <app-text-input
-        [formControl]="$any(newEbookForm.controls['format'])"
+        [formControl]="$any(updateEbookForm.controls['format'])"
         label="Formato"
         placeholder="Ingrese el formato del ebook"
         requiredMessage="El formato es requerido"
     />
 
     <app-text-input
-        [formControl]="$any(newEbookForm.controls['price'])"
+        [formControl]="$any(updateEbookForm.controls['price'])"
         label="Precio"
         placeholder="Ingrese el precio del ebook"
         requiredMessage="El precio es requerido"
@@ -43,16 +43,15 @@
 
     <button
       class="place-self-end w-fit my-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg"
-      [disabled]="!newEbookForm.valid"
+      [disabled]="!updateEbookForm.valid"
       [ngClass]="
-        newEbookForm.valid
+        updateEbookForm.valid
           ? 'hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300'
           : 'bg-blue-400 cursor-not-allowed'
       "
       type="submit"
     >
-      Crear
+      Editar
     </button>
-
   </form>
 </div>

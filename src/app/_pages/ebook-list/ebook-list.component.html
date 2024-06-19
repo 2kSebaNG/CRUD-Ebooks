@@ -1,1 +1,52 @@
-<p>ebook-list works!</p>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Título
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Autor
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Género
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Formato
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Precio
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Acciones
+              </th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let ebook of ebooks">
+          <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ebook.title}}
+              </th>
+              <td class="px-6 py-4">
+                  {{ebook.author}}
+              </td>
+              <td class="px-6 py-4">
+                  {{ebook.genre}}
+              </td>
+              <td class="px-6 py-4">
+                  {{ebook.format}}
+              </td>
+              <td class="px-6 py-4">
+                  {{ebook.price}}
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex gap-x-2">
+                <a [routerLink]="['/update-ebook',ebook.id]" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                <button (click)="deleteEbook(ebook.id)" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</button>
+                </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
